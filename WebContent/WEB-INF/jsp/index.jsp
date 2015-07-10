@@ -9,7 +9,7 @@
 <html>
     <head>
     	<sj:head jqueryui="true" jquerytheme="redmond" />
-        <title>Struts 2 Table</title>
+        <title>== Struts 2 Table ==</title>
         <s:head/>
     </head>
     <body>

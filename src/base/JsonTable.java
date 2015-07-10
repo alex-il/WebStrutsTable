@@ -2,17 +2,20 @@ package base;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.LogManager;
 
 import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Actions;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
+import org.jboss.logging.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
 @ParentPackage(value = "showcase")
 public class JsonTable extends ActionSupport {
+	private static final Logger log = Logger.getLogger(JsonTable.class);
 
 	// Your result List
 	private List<Customer> gridModel;
@@ -48,8 +51,8 @@ public class JsonTable extends ActionSupport {
 
 	@Actions({ @Action(value = "/jsontable", results = { @Result(name = "success", type = "json") }) })
 	public String execute() {
-//		int to = (rows * page);
-//		int from = to - rows;
+		// int to = (rows * page);
+		// int from = to - rows;
 
 		records = 2;
 
@@ -57,12 +60,11 @@ public class JsonTable extends ActionSupport {
 		Customer c = new Customer();
 		c.setCity("City:ooo");
 		c.setCountry("Country");
-		c.setCreditLimit(100.00);
+		c.setCreditLimit(1010.00);
 		c.setId(1);
 		c.setName("Name");
 		gridModel.add(c);
-		
-		
+
 		Customer c2 = new Customer();
 		c2.setCity("2City");
 		c2.setCountry("Country");
@@ -70,18 +72,17 @@ public class JsonTable extends ActionSupport {
 		c2.setId(2);
 		c2.setName("2Name");
 		gridModel.add(c2);
-	
-		
+
 		Customer c3 = new Customer();
 		c3.setCity("3City");
 		c3.setCountry("3Country");
-		c3.setCreditLimit(33.333);
+		c3.setCreditLimit(11133.333);
 		c3.setId(3);
 		c3.setName("3Name");
 		gridModel.add(c3);
 
 		total = (int) Math.ceil((double) records / (double) rows);
-
+		log.info("data size():"+gridModel.size());
 		return SUCCESS;
 	}
 
