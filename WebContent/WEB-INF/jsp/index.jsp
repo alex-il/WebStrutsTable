@@ -9,20 +9,21 @@
 <html>
     <head>
     	<sj:head jqueryui="true" jquerytheme="redmond" />
-        <title>Struts 2 hello world example</title>
+        <title>Struts 2 Table</title>
         <s:head/>
     </head>
     <body>
+    <a href="<s:url action="index" namespace="config-browser" />">Launch the configuration browser</a>
         <s:url var="remoteurl" action="jsontable"/>
 	    <sjg:grid
 	        id="gridtable"
-	        caption="Customer Examples"
+	        caption="Web Table"
 	        dataType="json"
 	        href="%{remoteurl}"
 	        pager="true"
 	        gridModel="gridModel"
-	        rowList="10,15,20"
-	        rowNum="15"
+	        rowList="2,4,9"
+	        rowNum="2"
 	        rownumbers="true"
 	    >
 	        <sjg:gridColumn name="id" index="id" title="ID" formatter="integer" sortable="false"/>

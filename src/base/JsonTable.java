@@ -51,16 +51,34 @@ public class JsonTable extends ActionSupport {
 //		int to = (rows * page);
 //		int from = to - rows;
 
-		records = 1;
+		records = 2;
 
 		gridModel = new ArrayList<Customer>();
 		Customer c = new Customer();
-		c.setCity("City");
+		c.setCity("City:ooo");
 		c.setCountry("Country");
 		c.setCreditLimit(100.00);
 		c.setId(1);
 		c.setName("Name");
 		gridModel.add(c);
+		
+		
+		Customer c2 = new Customer();
+		c2.setCity("2City");
+		c2.setCountry("Country");
+		c2.setCreditLimit(222.22);
+		c2.setId(2);
+		c2.setName("2Name");
+		gridModel.add(c2);
+	
+		
+		Customer c3 = new Customer();
+		c3.setCity("3City");
+		c3.setCountry("3Country");
+		c3.setCreditLimit(33.333);
+		c3.setId(3);
+		c3.setName("3Name");
+		gridModel.add(c3);
 
 		total = (int) Math.ceil((double) records / (double) rows);
 
