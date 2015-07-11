@@ -2,7 +2,6 @@ package base;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.LogManager;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Actions;
@@ -15,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @SuppressWarnings("serial")
 @ParentPackage(value = "showcase")
 public class JsonTable extends ActionSupport {
+//	JBoss logger
 	private static final Logger log = Logger.getLogger(JsonTable.class);
 
 	// Your result List

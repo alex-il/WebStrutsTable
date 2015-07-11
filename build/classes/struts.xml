@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<package name="showcase" extends="struts-default,json-default" namespace="/">
+	<constant name="struts.devMode" value="false" />
+	<package name="showcase" extends="struts-default,json-default"
+		namespace="/">
+
+		<interceptors>
+
+			<interceptor name="printMsgInterceptor"
+				class="inter.PrintMsgInterceptor"></interceptor>
+
+			<interceptor-stack name="newStack">
+				<interceptor-ref name="printMsgInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+
+		</interceptors>
+
 		<action name="">
 			<result>/WEB-INF/jsp/index.jsp</result>
 		</action>
 		<action name="jsontable" class="base.JsonTable">
+			<interceptor-ref name="newStack"/>
 			<result type="json" />
 		</action>
+
 		<action name="getJSONResult" class="base.JSONDataAction">
 			<result type="json" />
 		</action>
+
 		<action name="HelloJSONDemo" class="base.HelloJSONAction">
 			<result type="json" />
 		</action>
+
+
+
+
 	</package>
+
 </struts>

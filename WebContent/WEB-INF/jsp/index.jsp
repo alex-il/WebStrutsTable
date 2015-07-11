@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
@@ -15,6 +14,9 @@
     <body>
     <a href="<s:url action="index" namespace="config-browser" />">Launch the configuration browser</a>
         <s:url var="remoteurl" action="jsontable"/>
+	    <% out.println("----requ---"+request.getAttribute("remoteurl")); %>
+	    <% out.println("--responce-----"+response.getContentType() ); %>
+	    
 	    <sjg:grid
 	        id="gridtable"
 	        caption="Web Table"
@@ -25,7 +27,11 @@
 	        rowList="2,4,9"
 	        rowNum="2"
 	        rownumbers="true"
+
 	    >
+	    
+	    
+	    <% out.println(session.getAttribute("href")); %>
 	        <sjg:gridColumn name="id" index="id" title="ID" formatter="integer" sortable="false"/>
 	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
 	        <sjg:gridColumn name="country" index="country" title="Country" sortable="false"/>
