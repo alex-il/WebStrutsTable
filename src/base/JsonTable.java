@@ -82,7 +82,7 @@ public class JsonTable extends ActionSupport {
 		gridModel.add(c3);
 
 		total = (int) Math.ceil((double) records / (double) rows);
-		log.info("data size():"+gridModel.size());
+		log.info("----data size():"+gridModel.size());
 		return SUCCESS;
 	}
 

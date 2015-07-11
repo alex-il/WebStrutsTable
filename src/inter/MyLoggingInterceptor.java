@@ -11,12 +11,12 @@ public class MyLoggingInterceptor implements Interceptor {
 
 		String className = invocation.getAction().getClass().getName();
 		long startTime = System.currentTimeMillis();
-		System.out.println("Before calling action: " + className);
+		System.out.println("========Before calling action: " + className);
 
 		String result = invocation.invoke();
 
 		long endTime = System.currentTimeMillis();
-		System.out.println("After calling action: " + className
+		System.out.println("<<<====After calling action: " + className
 				+ " Time taken: " + (endTime - startTime) + " ms");
 
 		return result;

@@ -1,5 +1,12 @@
 package base;
 public class Customer {
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", country=" + country
+				+ ", city=" + city + ", creditLimit=" + creditLimit
+				+ ", getId()=" + getId() + ", getClass()=" + getClass() + "]";
+	}
+
 	private Integer id;
 	private String name;
 	private String country;
