@@ -6,22 +6,36 @@
 		namespace="/">
 
 		<interceptors>
-
+<!-- 
+ -->
 			<interceptor name="printMsgInterceptor"
-				class="inter.PrintMsgInterceptor"></interceptor>
+				class="inter.PrintMsgInterceptor">
+			</interceptor>
 
 			<interceptor-stack name="newStack">
 				<interceptor-ref name="printMsgInterceptor" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
-
+			
+			<interceptor name="mylogging" 
+				class="inter.MyLoggingInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="loggingStack">
+				<interceptor-ref name="mylogging" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		
 		</interceptors>
 
 		<action name="">
 			<result>/WEB-INF/jsp/index.jsp</result>
 		</action>
 		<action name="jsontable" class="base.JsonTable">
+		<!--  
+		 -->
 			<interceptor-ref name="newStack"/>
+			<interceptor-ref name="loggingStack"/>
 			<result type="json" />
 		</action>
 
